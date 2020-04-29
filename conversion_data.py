@@ -26,8 +26,9 @@ def conversion_all(data, output):
 
 def conversion(data):
     case, output = data
+    print('case:', case)
     vol_nii = nib.load(str(case / 'imaging.nii.gz'))
-    vol = vol_nii.get_data()
+    vol = vol_nii.get_fdata()
     vol = KiTS19.normalize(vol)
     
     imaging_dir = output / case.name / 'imaging'
@@ -39,7 +40,7 @@ def conversion(data):
 
     segmentation_file = case / 'segmentation.nii.gz'
     if segmentation_file.exists():
-        seg = nib.load(str(case / 'segmentation.nii.gz')).get_data()
+        seg = nib.load(str(case / 'segmentation.nii.gz')).get_fdata()
         segmentation_dir = output / case.name / 'segmentation'
         if not segmentation_dir.exists():
             segmentation_dir.mkdir(parents=True)

@@ -105,6 +105,10 @@ class KiTS19(data.Dataset):
         for case in cases:
             case_root = root / f'case_{case:05d}'
             imaging_dir = case_root / 'imaging'
+            print('**********************')
+            print('case_root:', case_root)
+            print('imaging_dir:', imaging_dir)
+            print('**********************')
             assert imaging_dir.exists()
             case_imgs = sorted(list(imaging_dir.glob('*.npy')))
             

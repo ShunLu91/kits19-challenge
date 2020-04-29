@@ -51,9 +51,9 @@ def main(epoch_num, batch_size, lr, num_gpu, img_size, data_path, log_path,
     log_path = Path(log_path)
     cp_path = log_path / 'checkpoint'
     
-    if not resume and log_path.exists() and len(list(log_path.glob('*'))) > 0:
-        print(f'log path "{str(log_path)}" has old file', file=sys.stderr)
-        sys.exit(-1)
+    # if not resume and log_path.exists() and len(list(log_path.glob('*'))) > 0:
+    #     print(f'log path "{str(log_path)}" has old file', file=sys.stderr)
+    #     sys.exit(-1)
     if not cp_path.exists():
         cp_path.mkdir(parents=True)
     

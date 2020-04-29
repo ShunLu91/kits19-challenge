@@ -62,6 +62,7 @@ class KiTS19(data.Dataset):
         self._train_case = read_txt(train_case_ids_file)
         self._valid_case = read_txt(valid_case_ids_file)
         self._test_case = read_txt(test_case_ids_file)
+        print('self._train_case:', self._train_case)
         self._case_id = self._train_case + self._valid_case + self._test_case
         
         train_imgs, train_labels, train_case_slice_num = self._read_npy(self._root, self._train_case, is_test=False)
